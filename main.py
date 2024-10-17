@@ -1,4 +1,5 @@
 #This is the encoder and decoder in Julian's repo
+#Decoder function by Elias (EJ) Quintos
 
 def printMenu():
     print("Menu")
@@ -9,11 +10,16 @@ def printMenu():
     print()
     
 
+#As it is this will give problems with digits 7 through 9
 def encode(pswd):
     return "".join([str(int(dig)+3) for dig in pswd])
     
-def decode(pswd):
-    pass
+def decode(currPswd):
+    res = ''
+    for i in currPswd:
+        temp = int(i) + 10
+        res = res + str(int(temp) - 3)[-1]
+    return res
 
 
 currPswd = ""
@@ -28,5 +34,5 @@ while(True):
         print("Your password has been encoded and stored!")
         currPswd = encode(pswd)
     if(option == 2):
-        pass
+        print(f'The encoded password is {currPswd}, and the original password is {decode(currPswd)}')
     print()
