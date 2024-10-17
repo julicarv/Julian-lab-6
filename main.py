@@ -1,3 +1,5 @@
+#This is the encoder and decoder in Julian's repo
+
 def printMenu():
     print("Menu")
     print("-------------")
@@ -6,8 +8,16 @@ def printMenu():
     print("3. Quit")
     print()
     
-pswd = ""
-ePswd = ""
+
+def encode(pswd):
+    return "".join([str(int(dig)+3) for dig in pswd])
+    
+def decode(pswd):
+    pass
+
+
+currPswd = ""
+
 while(True):
     printMenu()
     option = int(input("Please enter an option: "))
@@ -16,7 +26,7 @@ while(True):
     if(option == 1):
         pswd = input("Please enter your password to encode: ")
         print("Your password has been encoded and stored!")
-        ePswd = "".join([str(int(dig)+3) for dig in pswd])
+        currPswd = encode(pswd)
     if(option == 2):
-        print(f"The encoded password is {ePswd}, and the original password is {pswd}.")
+        pass
     print()
